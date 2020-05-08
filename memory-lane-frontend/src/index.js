@@ -10,9 +10,11 @@ import routes from './routes'
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={Store}>
+   <React.StrictMode>
+     <App />
+   </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
