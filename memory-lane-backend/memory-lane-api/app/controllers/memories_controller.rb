@@ -52,7 +52,7 @@ class MemoriesController < ApplicationController
   
       
       def memory_params
-        params.require(:memory).permit(:description, :people, :dates, :photos, :spot_id)
+        params.require(:memory).permit(:description, :people, :dates, :photos, :spot_id, :user_id)
       end
 
   
