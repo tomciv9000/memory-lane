@@ -13,15 +13,13 @@ create_table "memories", force: :cascade do |t|
     t.string "location"
     t.float "lat"
     t.float "lng"
-    t.integer "trip_id"
+    t.integer "place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
-    t.string "dates"
-    t.string "flights"
     t.string "description"
     t.integer "user_id"
     t.datetime "created_at", null: false
