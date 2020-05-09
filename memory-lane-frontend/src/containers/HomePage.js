@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PlaceContainer from './PlaceContainer'
-import PlaceForm from './PlaceForm'
+import { fetchPlaces } from '../actions/placeAction';
+import PlaceContainer from './PlaceContainer';
+import PlaceForm from './PlaceForm';
 // PropTypes can be used to typecheck a component or prop
 //import PropTypes from 'prop-types';
-import GoogleMaps from '../components/GoogleMaps'
+import GoogleMaps from '../components/GoogleMaps';
 //import { List, Header, Grid, Image } from 'semantic-ui-react'
-import AllSpotsMap from '../components/AllPlacesMap'
+import AllSpotsMap from '../components/AllSpotsMap';
 import { Link } from 'react-router-dom';
 
 class HomePage extends React.Component {
@@ -40,12 +41,12 @@ class HomePage extends React.Component {
     render () {
         return(
             <div >
-              <center><p className="largetext">Travelog</p></center>
+              <center><p className="largetext">Memory Lane</p></center>
               <br></br>
                 
-                        {this.callTripContainer()}
+                        {this.callPlaceContainer()}
                     
-                      <TripForm />
+                      <PlaceForm />
              
       
               <div>
@@ -71,4 +72,4 @@ const mapStateToProps = state => ({
     newPlace: state.places.place,
 })
   
-export default connect(mapStateToProps, { fetchplaces })(HomePage)
+export default connect(mapStateToProps, { fetchPlaces })(HomePage)
