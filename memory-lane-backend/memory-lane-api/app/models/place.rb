@@ -1,3 +1,4 @@
 class Place < ApplicationRecord
-  belongs_to :spot
+  has_many :spots
+  ## belongs_to :user
 end
