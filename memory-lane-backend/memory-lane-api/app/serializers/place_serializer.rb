@@ -1,4 +1,5 @@
 class PlaceSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  
+  attributes :name, :description, :user_id 
 end
