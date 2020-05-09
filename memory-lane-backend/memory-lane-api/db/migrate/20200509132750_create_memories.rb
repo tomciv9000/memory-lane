@@ -5,6 +5,8 @@ class CreateMemories < ActiveRecord::Migration[6.0]
       t.string :people
       t.string :dates
       t.string :photos
+      t.integer :spot_id
+      t.integer :user_id
 
       t.timestamps
     end
