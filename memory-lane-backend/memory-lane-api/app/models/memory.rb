@@ -1,4 +1,4 @@
 class Memory < ApplicationRecord
-    belongs_to :place
-    ## belongs_to :user
+    belongs_to :spot
+    belongs_to :user
 end
