@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
   end
 
 
-  def decoded_token(token)
+  def decoded_token
     if auth_header
       token = auth_header.split(' ')[1]
       begin
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::API
   end
 
   def authorized
-    render json: {message: 'Please log in'}, status: :unauthorized unless loggged_in?
+    render json: {message: 'Please log in'}, status: :unauthorized unless logged_in?
   end
 
   
