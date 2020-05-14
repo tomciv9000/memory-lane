@@ -22,15 +22,25 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def current_user
-    if decoded_token
-      user_id = decoded_token[0]['user_id']
+  def session_user
+    decoded_hash = decoded_token
+    if !decoded_hash.empty?
+      user_id = decoded_hash[0]['user_id']
       @user = User.find_by(id: user_id)
+    else
+      nil
     end
   end
 
+  ##def current_user
+  ##  if decoded_token
+  ##    user_id = decoded_token[0]['user_id']
+  ##    @user = User.find_by(id: user_id)
+  ##  end
+  ##end
+
   def logged_in?
-    !!current_user
+    !!session_user
   end
 
   def authorized

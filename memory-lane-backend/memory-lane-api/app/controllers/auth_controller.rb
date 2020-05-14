@@ -13,6 +13,24 @@ class AuthController < ApplicationController
     end
   end
 
+  def login 
+    @user = User.find_by(username: user_login_params[:username])
+    if @user && @user.authenticate(user_login_params[:password])
+      payload = {user_id: @user.id}
+      token = encode_token(payload)
+      render json: { user: UserSerializer.new(@user), jwt: token, success: "Welcome back, #{@user.username}" }, status: :accepted
+    else
+      render json: { message: 'Invalid username or password' }, status: :unauthorized
+    end
+  end
+
+  def auto_login
+    if session_user
+      render json: session_user
+    else
+      render json: {errors: "No User Logged In"}
+    end
+  end
   private
 
   def user_login_params
