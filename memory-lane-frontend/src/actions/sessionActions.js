@@ -18,3 +18,7 @@ export function logInUser(credentials) {
     });
   };
 }
+
+//mapping the session Githubtrav bullshit to the reliable method from reynoso
+// marrying the sessionapi
+//clean up the fetch routes to not call localhost because of foreman
